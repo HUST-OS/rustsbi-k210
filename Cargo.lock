@@ -263,9 +263,9 @@ checksum = "69d3587f8a9e599cc7ec2c00e331f71c4e69a5f9a4b8a6efd5b07466b9736f9a"
 
 [[package]]
 name = "proc-macro2"
-version = "1.0.71"
+version = "1.0.88"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "75cb1540fadbd5b8fbccc4dddad2734eba435053f725621c070711a14bb5f4b8"
+checksum = "7c3a7fc5db1e57d5a779a352c8cdb57b29aa4c40cc69c3a68a7fedc815fbf2f9"
 dependencies = [
  "unicode-ident",
 ]
@@ -327,17 +327,6 @@ dependencies = [
 [[package]]
 name = "riscv"
 version = "0.7.0"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "6907ccdd7a31012b70faf2af85cd9e5ba97657cc3987c4f13f8e4d2c2a088aba"
-dependencies = [
- "bare-metal 1.0.0",
- "bit_field 0.10.2",
- "riscv-target",
-]
-
-[[package]]
-name = "riscv"
-version = "0.7.0"
 source = "git+https://github.com/rust-embedded/riscv?rev=cd31989b#cd31989ba11d5d64e1addd8aab98bfb00dd927d5"
 dependencies = [
  "bare-metal 1.0.0",
@@ -378,13 +367,12 @@ dependencies = [
 
 [[package]]
 name = "rustsbi"
-version = "0.2.2"
+version = "0.4.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "039ff1f03eaf3ead3f6804b4e7abb7c5abd4f9e71b0483ebd554d78ce1298b5d"
+checksum = "44c13763120794ed11d64bac885fb31d384ae385c3287b0697711b97affbf8ab"
 dependencies = [
- "embedded-hal",
- "nb 1.1.0",
- "riscv 0.7.0 (registry+https://github.com/rust-lang/crates.io-index)",
+ "rustsbi-macros",
+ "sbi-spec",
 ]
 
 [[package]]
@@ -398,6 +386,23 @@ dependencies = [
  "riscv 0.10.1",
  "rustsbi",
 ]
+
+[[package]]
+name = "rustsbi-macros"
+version = "0.0.2"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "a71347da9582cc6b6f3652c7d2c06516c9555690b3738ecdff7e84297f4e17fc"
+dependencies = [
+ "proc-macro2",
+ "quote",
+ "syn",
+]
+
+[[package]]
+name = "sbi-spec"
+version = "0.0.7"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "e6e36312fb5ddc10d08ecdc65187402baba4ac34585cb9d1b78522ae2358d890"
 
 [[package]]
 name = "scopeguard"
@@ -486,7 +491,7 @@ dependencies = [
  "buddy_system_allocator",
  "lazy_static",
  "r0",
- "riscv 0.7.0 (git+https://github.com/rust-embedded/riscv?rev=cd31989b)",
+ "riscv 0.7.0",
  "spin 0.9.8",
 ]
 
